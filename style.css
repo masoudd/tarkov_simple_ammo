@@ -1,26 +1,30 @@
-#refresh {
-  padding: 1em;
+button {
+  padding: 1em 0.8em;
   font-family: inherit;
-  background: #2d2d2f;
-  color: #c7c5b3;
-  border: 1px solid black;
+  background: #4d4433;
+  color: black;
+  border: none;
+  border-radius: 3px;
+  transition:background-color 0.2s ease-in-out
 }
-
-#refresh:hover {
-    background: rgba(0, 0, 0, .4);
-}
-#refresh:active {
-  border: solid 1px #9a8866;
+button:hover {
+  background: #9a8866;
+  transition:background-color 0.2s ease-in-out
 }
 
 #search_input {
-  padding: 1em;
+  padding: 1em 0.8em;
   min-width: 25%;
-  border: solid 2px #9a8866;
-  background: #2d2d2f;
-  color: #c7c5b3;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 100px #413d34,0 0 6px rgba(232,190,107,.8);
+  background: #000;
+  color: #9a8866;
   float: right;
   font-family: inherit;
+}
+#search_input:focus {
+    outline: 0;
 }
 
 a {
@@ -31,10 +35,11 @@ body {
   background: #2d2d2f;
   color: #c7c5b3;
   font-family: Bender;
-/*  font-size: 16px;*/
+}
+body * {
+    letter-spacing: 0.01em;
 }
 thead {
-/*  font-size: 18px;*/
   background: rgba(0,0,0,.4);
   position: sticky;
   top: 0;
@@ -46,7 +51,7 @@ table {
   text-align: center;
 }
 th, td {
-  padding: 1em;
+  padding: 0.5em;
 }
 tbody tr:nth-child(odd) {
   background: #343434;
