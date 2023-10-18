@@ -31,10 +31,10 @@ body {
   background: #2d2d2f;
   color: #c7c5b3;
   font-family: Bender;
-  font-size: 16px;
+/*  font-size: 16px;*/
 }
 thead {
-  font-size: 18px;
+/*  font-size: 18px;*/
   background: rgba(0,0,0,.4);
   position: sticky;
   top: 0;
