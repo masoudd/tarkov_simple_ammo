@@ -4,7 +4,7 @@
     "name": "Tarkov Simple Ammo",
     "short_name": "Ammo",
     "start_url": "./index.html",
-    "description": "a test application. for testing purposes",
+    "description": "Escape from Tarkov simple ammo table",
     "scope": "./",
     "icons": [{
         "src": "icon_small.webp",
