@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Escape from Tarkov table of ammunition and their stats">
+  <title>Tarkov Simple Ammo</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+  @font-face{font-family:bender;font-display:block;font-style:normal;font-weight:400;src:local('Bender Regular'),url('Bender.woff') format('woff')}@font-face{font-family:bender;font-display:swap;font-style:normal;font-weight:700;src:local('Bender Bold'),url('Bender-Bold.woff') format('woff')}
+  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <p>This is a <a href="https://en.wikipedia.org/wiki/Progressive_web_app">PWA (Progressive Web App)</a>,
+     you can install it from the address bar. And it works offline.</p>
+  <p>All data is fetched from <a href="https://tarkov.dev">tarkov.dev</a></p>
+  <button id=refresh>🔃 Refresh from <i>tarkov.dev</i></button>
+  <input type=search id=search_input placeholder="type here to filter">
+  <div class=table_wrapper>
+    <table id=ammo_table>
+      <thead>
+        <tr>
+          <th>Caliber</th>
+          <th>Name</th>
+          <th>Damage</th>
+          <th>Pen</th>
+          <th>Armor Damage</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <script src="app.js"></script>
+</body>

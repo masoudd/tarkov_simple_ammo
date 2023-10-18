@@ -1,0 +1,17 @@
+{
+    "background_color": "#2d2d2f",
+    "display": "standalone",
+    "name": "Tarkov Simple Ammo",
+    "short_name": "Ammo",
+    "start_url": "./index.html",
+    "description": "a test application. for testing purposes",
+    "scope": "./",
+    "icons": [{
+        "src": "icon_small.webp",
+        "sizes": "64x64",
+        "type": "image/webp"},
+    {
+        "src": "icon.webp",
+        "sizes": "512x512",
+        "type": "image/webp"}]}
+
