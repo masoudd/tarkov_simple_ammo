@@ -64,9 +64,9 @@ self.addEventListener('fetch', function(event) {
                 return caches.match(event.request).then(response => {
                     if (response !== undefined) {
                         return response;
-                    //} else {
-                        //console.log('Network is down and this resource is not yet cached', event);
-                        //return new Response('You are offline and this page is not cached');
+                    } else {
+                        console.log('Network is down and this resource is not yet cached', event);
+                        return new Response('You are offline and this page is not cached');
                     }
                 });
 
