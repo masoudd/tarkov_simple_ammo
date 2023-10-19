@@ -3,7 +3,7 @@
     "display": "standalone",
     "name": "Tarkov Simple Ammo",
     "short_name": "Ammo",
-    "start_url": "./index.html",
+    "start_url": "https://masoudd.ir/tarkov/index.html",
     "description": "Escape from Tarkov simple ammo table",
     "scope": "./",
     "icons": [{
