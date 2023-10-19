@@ -53,6 +53,10 @@ table {
 th, td {
   padding: 0.5em;
 }
-tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd of :not(.hidden)) {
   background: #343434;
+}
+
+.hidden {
+    display: none;
 }

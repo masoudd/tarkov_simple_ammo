@@ -79,9 +79,9 @@ function search(event) {
     let text = elem.value.toLowerCase();
     search_map.forEach((value, key) => {
         if (key.includes(text)) {
-            value.style.display = ""; //show it
+            value.classList.remove('hidden'); //show it
         } else {
-            value.style.display = "none"; //hide the non matching rows
+            value.classList.add('hidden'); //hide the non matching rows
         }
     });
 }
