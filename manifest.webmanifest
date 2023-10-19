@@ -1,17 +1,35 @@
 {
+    "theme_color": "#2d2d2f",
     "background_color": "#2d2d2f",
     "display": "standalone",
     "name": "Tarkov Simple Ammo",
     "short_name": "Ammo",
     "start_url": "https://masoudd.ir/tarkov/index.html",
     "description": "Escape from Tarkov simple ammo table",
-    "scope": "./",
+    "orientation": "any",
+    "scope": "https://masoudd.ir/tarkov",
+    "lang": "en",
+    "launch_handler": {
+        "client-mode": ["focus-existing"," auto"]
+    },
     "icons": [{
         "src": "icon_small.webp",
         "sizes": "64x64",
-        "type": "image/webp"},
+        "type": "image/webp",
+        "purpose": "any"},
     {
         "src": "icon.webp",
         "sizes": "512x512",
-        "type": "image/webp"}]}
+        "type": "image/webp",
+        "purpose": "maskable"},
+    {
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"},
+    {
+        "src": "icon_any.webp",
+        "sizes": "512x512",
+        "type": "image/webp",
+        "purpose": "any"}]}
 
