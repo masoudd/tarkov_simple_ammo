@@ -4,7 +4,8 @@ const urlsToCache = [
     'app.js',
     'style.css',
     'Bender.woff',
-    'Bender-Bold.woff'
+    'Bender-Bold.woff',
+    'favicon.ico'
 ];
 
 self.addEventListener('install', event => {
