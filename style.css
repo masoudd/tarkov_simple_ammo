@@ -87,3 +87,30 @@ th.sorted[data-descending="false"]::after {
     border: 1px solid #9a8866;
     transition:border 0.2s ease-in-out
 }
+
+@media (max-width: 400px) {
+    th, td, body, html {
+        padding: 0;
+        margin: 0;
+    }
+    #search_input {
+        width: 90%;
+        margin: auto;
+        float: none;
+        display: block;
+    }
+    button {
+        margin: auto;
+        margin-bottom: 1em;
+        display: block;
+        width: 90%;
+    }
+    th {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    table {
+        border: none;
+        font-size: small;
+    }
+}
