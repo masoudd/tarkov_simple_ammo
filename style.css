@@ -46,17 +46,44 @@ thead {
 }
 table {
   margin-top: 1em;
-  border: solid black;
+  border: 2px solid black;
+  border-radius: 4px;
   width: 100%;
   text-align: center;
 }
 th, td {
   padding: 0.5em;
 }
-tbody tr:nth-child(odd of :not(.hidden)) {
+tbody > tr:nth-child(odd of :not(.hidden)) {
   background: #343434;
 }
 
 .hidden {
     display: none;
+}
+
+th {
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid black;
+    transition:border 0.2s ease-in-out
+}
+
+th::after {
+    content: ' ▼';
+    visibility: hidden;
+    user-select: none;
+}
+
+th.sorted::after {
+    visibility: visible;
+}
+
+th.sorted[data-descending="false"]::after {
+    content: ' ▲';
+}
+
+.sorted {
+    border: 1px solid #9a8866;
+    transition:border 0.2s ease-in-out
 }

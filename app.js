@@ -75,6 +75,55 @@ function search(event) {
     });
 }
 
+function sort(event) {
+    const elem = event.srcElement.closest('th');
+    const type = elem.dataset['type'];
+    const table = elem.closest('table');
+    // sort in descending order first.
+    // nobody wants to see the least pen or damage on first click
+    const already_descending = (elem.dataset['descending'] === "true") //dataset is a string in the html node attribute data-*
+    const sorted = elem.classList.contains('sorted');
+    /* Value of descending I want:
+     *
+             sorted│
+                   │
+already_descending │ T │ F
+      ─────────────┼───┼───
+                   │   │
+                 T │ F │ T
+                   │   │
+                 ──┼───┼───
+                   │   │
+                 F │ T │ T
+                   │   │
+     *
+     */
+    const descending = !(already_descending && sorted);
+    elem.dataset['descending'] = String(descending);
+
+    table.querySelectorAll('th').forEach(th => th.classList.remove('sorted'));
+    elem.classList.add('sorted');
+    const column = Array.from(elem.parentElement.children).indexOf(elem)
+    Array.from(table.querySelectorAll('tbody>tr'))
+        .sort(getCompareFn(column, descending, type))
+        .forEach(tr => table.tBodies[0].appendChild(tr));
+}
+
+// returns a function that compares two <tr> elements
+function getCompareFn(column, descending, type) {
+    return function(tr1, tr2) {
+        let v1 = tr1.childNodes[column].innerText
+        let v2 = tr2.childNodes[column].innerText
+        if (type === "string") {
+            return (descending ? v2.localeCompare(v1) : v1.localeCompare(v2));
+        } else {
+            v1 = parseInt(v1);
+            v2 = parseInt(v2);
+            return (descending ? v2 - v1 : v1 - v2);
+        }
+    };
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#refresh").addEventListener("click", event => {
         fetchAmmoData();
@@ -87,4 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         repopulateTable();
     }
+
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', sort));
 });
