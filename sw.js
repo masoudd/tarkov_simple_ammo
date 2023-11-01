@@ -32,6 +32,9 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+    if (event.request.method !== 'GET') {
+        return;
+    }
     let response = fetch(event.request)
         .then(response => {
             // only cache the response if it's valid, 200,
@@ -43,9 +46,12 @@ self.addEventListener('fetch', event => {
                 return response;
             }
         })
-        .catch(response => caches.match(event.request));
+        .catch(response => {
+//            console.log("fetch failed: ", response);
+            return caches.match(event.request);
+        });
 
-    console.log("fetch event for : ", event.request);
-    console.log("responding with: ", response);
+//    console.log("fetch event for : ", event.request);
+//    console.log("responding with: ", response);
     event.respondWith(response);
 });
