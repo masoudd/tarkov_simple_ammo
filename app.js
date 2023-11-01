@@ -18,6 +18,7 @@ function fetchAmmoData() {
                 caliber
                 penetrationPower
                 damage
+                projectileCount
                 armorDamage
                 item {
                     shortName
@@ -51,7 +52,11 @@ function repopulateTable(indata) {
         }
         appendTD(ammo.caliber.substr(7)); //remove the leading "Caliber"
         appendTD(ammo.item.shortName);
-        appendTD(ammo.damage);
+        let damage_and_projectile_count = ammo.damage.toString();
+        if (ammo.projectileCount !== 1) {
+            damage_and_projectile_count += "x" + ammo.projectileCount.toString();
+        }
+        appendTD(damage_and_projectile_count);
         appendTD(ammo.penetrationPower);
         appendTD(ammo.armorDamage + "%");
         tbody.appendChild(tr);
@@ -117,11 +122,20 @@ function getCompareFn(column, descending, type) {
         if (type === "string") {
             return (descending ? v2.localeCompare(v1) : v1.localeCompare(v2));
         } else {
-            v1 = parseInt(v1);
-            v2 = parseInt(v2);
+            v1 = myParseNumber(v1);
+            v2 = myParseNumber(v2);
             return (descending ? v2 - v1 : v1 - v2);
         }
     };
+}
+
+// Like parseInt but calculate "50x8" to 400 instead of just 50
+function myParseNumber(str) {
+    if (str.includes('x')) {
+        return str.split('x').reduce((accumulated, current) => accumulated * parseInt(current), 1);
+    } else {
+        return parseInt(str);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
