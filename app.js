@@ -53,7 +53,7 @@ function repopulateTable(indata) {
         appendTD(ammo.caliber.substr(7)); //remove the leading "Caliber"
         appendTD(ammo.item.shortName);
         let damage_and_projectile_count = ammo.damage.toString();
-        if (ammo.projectileCount !== 1) {
+        if (ammo.projectileCount && ammo.projectileCount !== 1) {
             damage_and_projectile_count += "x" + ammo.projectileCount.toString();
         }
         appendTD(damage_and_projectile_count);
@@ -141,15 +141,14 @@ function myParseNumber(str) {
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#refresh").addEventListener("click", event => {
         fetchAmmoData();
-        repopulateTable();
     });
 
     document.getElementById('search_input').addEventListener('input', search);
-    if (!localStorage.getItem('data')) {
+    let data = localStorage.getItem('data');
+    if (!data || !data.includes('projectileCount')) {
         fetchAmmoData();
     } else {
         repopulateTable();
     }
-
     document.querySelectorAll('th').forEach(th => th.addEventListener('click', sort));
 });
