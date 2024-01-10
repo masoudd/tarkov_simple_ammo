@@ -5,11 +5,13 @@ button {
   color: black;
   border: none;
   border-radius: 3px;
-  transition:background-color 0.2s ease-in-out
+  transition:background-color 0.2s ease-in-out;
 }
 button:hover {
   background: #9a8866;
-  transition:background-color 0.2s ease-in-out
+  transition:background-color 0.2s ease-in-out;
+  color: white;
+  cursor: pointer;
 }
 
 #search_input {
